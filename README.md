@@ -19,7 +19,7 @@ Easy built orbslam2 by visual studio on windows of both debug and release mode
 So, we'll build a visual studio 2013 project of ORB_SLAM2 using cmake and then make a x64 app. 
   
 ## Steps
-First, we'll compile projects in **Thirdparty** folder.
+First, we'll compile the projects in **Thirdparty** folder.
 ### DBoW2
 
 ### eigen
