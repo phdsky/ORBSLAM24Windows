@@ -20,6 +20,7 @@ So, we'll build a visual studio 2013 project of ORB_SLAM2 using cmake and then m
   
 ## Steps
 First, we'll compile the projects in **Thirdparty** folder.
+
 ### DBoW2
 1. Open cmake-gui, select DBow2 folder as the source path and the DBow2/build folder as the binaries path.
 2. Click configure, select Visual Studio 12 2013 Win64(or your own) as the generator, click finish.
@@ -27,8 +28,10 @@ First, we'll compile the projects in **Thirdparty** folder.
 4. Go to the DBow2/build folder, double click the DBoW2.sln to open the peoject.
 5. Build ALL_BUILD in either debug or release mode you want.
 6. After success build, the libraries will be in the lib folder of the DBow2 project source folder.
+
 ### eigen
 **eigen is not need to be built**
+
 ### g2o
 1. Open cmake-gui, select g2o folder as the source path and the g2o/build folder as the binaries path.
 2. Click configure, select Visual Studio 12 2013 Win64(or your own) as the generator, click finish.
@@ -37,6 +40,7 @@ First, we'll compile the projects in **Thirdparty** folder.
 5. Right click on the g2o project->Properties->C/C++->Preprocessor Definitions, add WINDOWS at the end row, click Apply and OK.
 6. Build ALL_BUILD in either debug or release mode you want(Remind to repeat step 5).
 7. After success build, the libraries will be in the lib folder of the g2o project source folder.
+
 ### Pangolin
 1. Open cmake-gui, select Pangolin folder as the source path and the Pangolin/build folder as the binaries path.
 2. Click configure, select Visual Studio 12 2013 Win64(or your own) as the generator, click finish.
