@@ -21,9 +21,39 @@ So, we'll build a visual studio 2013 project of ORB_SLAM2 using cmake and then m
 ## Steps
 First, we'll compile the projects in **Thirdparty** folder.
 ### DBoW2
-
+1. Open cmake-gui, select DBow2 folder as the source path and the DBow2/build folder as the binaries path.
+2. Click configure, select Visual Studio 12 2013 Win64(or your own) as the generator, click finish.
+3. After configure done, click Generate.
+4. Go to the DBow2/build folder, double click the DBoW2.sln to open the peoject.
+5. Build ALL_BUILD in either debug or release mode you want.
+6. After success build, the libraries will be in the lib folder of the DBow2 project source folder.
 ### eigen
-
+**eigen is not need to be built**
 ### g2o
-
+1. Open cmake-gui, select g2o folder as the source path and the g2o/build folder as the binaries path.
+2. Click configure, select Visual Studio 12 2013 Win64(or your own) as the generator, click finish.
+3. After configure done, click Generate.
+4. Go to the g2o/build folder, double click the g2o.sln to open the peoject.
+5. Right click on the g2o project->Properties->C/C++->Preprocessor Definitions, add WINDOWS at the end row, click Apply and OK.
+6. Build ALL_BUILD in either debug or release mode you want(Remind to repeat step 5).
+7. After success build, the libraries will be in the lib folder of the g2o project source folder.
 ### Pangolin
+1. Open cmake-gui, select Pangolin folder as the source path and the Pangolin/build folder as the binaries path.
+2. Click configure, select Visual Studio 12 2013 Win64(or your own) as the generator, click finish.
+3. After configure done, click Generate.
+4. Go to the Pangolin/build folder, double click the Pangolin.sln to open the peoject.
+5. Build ALL_BUILD in either debug or release mode you want.
+6. You'll get a error of "cannot open input file 'pthread.lib'", just ignore it.
+7. After success build, the libraries will be in the lib folder of the Pangolin project source folder.
+
+### ORBSLAM24Windows
+1. Open cmake-gui, select ORBSLAM24Windows folder as the source path and the ORBSLAM24Windows/build folder as the binaries path.
+2. Click configure, select Visual Studio 12 2013 Win64(or your own) as the generator, click finish.
+3. After configure done, click Generate.
+4. Go to the ORBSLAM24Windows/build folder, double click the ORB_SLAM2.sln to open the peoject.
+5. Build ALL_BUILD in either debug or release mode you want.
+6. After success build, the libraries will be in the lib folder of the ORB_SLAM2 project source folder.
+
+### Applications
+If you want to make apps, you can also build the mono-stero-RGBD projects provided.
+The picture shows the result of mono TUM dataset.
