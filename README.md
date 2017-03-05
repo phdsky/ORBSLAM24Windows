@@ -38,7 +38,7 @@ First, we'll compile the projects in **Thirdparty** folder.
 3. After configure done, click Generate.
 4. Go to the g2o/build folder, double click the g2o.sln to open the peoject.
 5. Right click on the g2o project->Properties->C/C++->Preprocessor Definitions, add WINDOWS at the end row, click Apply and OK.
-6. Build ALL_BUILD in either debug or release mode you want(Remind to repeat step 5).
+6. Build ALL_BUILD in either debug or release mode you want. **(Remind to repeat step 5 && Mode should be the same as DBoW2)**
 7. After success build, the libraries will be in the lib folder of the g2o project source folder.
 
 ### Pangolin
@@ -46,7 +46,7 @@ First, we'll compile the projects in **Thirdparty** folder.
 2. Click configure, select Visual Studio 12 2013 Win64(or your own) as the generator, click finish.
 3. After configure done, click Generate.
 4. Go to the Pangolin/build folder, double click the Pangolin.sln to open the peoject.
-5. Build ALL_BUILD in either debug or release mode you want.
+5. Build ALL_BUILD in either debug or release mode you want. **(Mode should be the same as DBoW2 && g2o)**.
 6. You'll get a error of "cannot open input file 'pthread.lib'", just ignore it.
 7. After success build, the libraries will be in the lib folder of the Pangolin project source folder.
 
@@ -55,11 +55,14 @@ First, we'll compile the projects in **Thirdparty** folder.
 2. Click configure, select Visual Studio 12 2013 Win64(or your own) as the generator, click finish.
 3. After configure done, click Generate.
 4. Go to the ORBSLAM24Windows/build folder, double click the ORB_SLAM2.sln to open the peoject.
-5. Build ALL_BUILD in either debug or release mode you want.
-6. After success build, the libraries will be in the lib folder of the ORB_SLAM2 project source folder.
+5. Choose either debug or release mode you want. **(Mode should be the same as DBoW2 && g2o && Pangolin)**.
+6. Right click the ORB_SLAM2 project and then click generate.
+7. After success build, the libraries will be in the lib folder of the ORB_SLAM2 project source folder.
 
 ### Applications
 If you want to make apps, you can also build the mono-stero-RGBD projects provided.
+
+**(Build mode should be the same as DBoW2 && g2o && Pangolin && ORB_SLAM2)**.
 
 The picture shows the result of mono TUM dataset.
 
