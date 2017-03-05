@@ -60,4 +60,6 @@ First, we'll compile the projects in **Thirdparty** folder.
 
 ### Applications
 If you want to make apps, you can also build the mono-stero-RGBD projects provided.
+
 The picture shows the result of mono TUM dataset.
+![ORBSLAM2_monoTUM](https://github.com/phdsky/ORBSLAM24Windows/ORBSLAM2_monoTUM.png)
