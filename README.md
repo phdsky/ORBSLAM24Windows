@@ -73,7 +73,7 @@ Take mono_tum app as an example, you can follow the steps below.
  - **path_to_sequence** rgbd_dataset_freiburg2_desk folder path
 6. Run app, it'll take a few minutes to load the vocabulary dictionary, and then you'll get the result.
 
-If you don't satisfied with the speed of loading dictionary, you can reference issue [vocabulary convert](https://github.com/raulmur/ORB_SLAM2/pull/21) to convert the txt vocabulary  to bin vocabulary, it speed up a lot.
+If you don't satisfied with the speed of loading dictionary, you can reference issue [vocabulary convert](https://github.com/raulmur/ORB_SLAM2/pull/21) to convert the txt vocabulary  to bin vocabulary, it speeds up a lot.
 
 The picture shows the result of mono TUM dataset.
 
