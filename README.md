@@ -61,8 +61,18 @@ First, we'll compile the projects in **Thirdparty** folder.
 
 ### Applications
 If you want to make apps, you can also build the mono-stero-RGBD projects provided.
+Take mono_tum app as an example, you can follow the steps below.  
+1. Go to the ORBSLAM24Windows/build folder, double click the ORB_SLAM2.sln to open the peoject.
+2. Choose either debug or release mode you want. **(Build mode should be the same as DBoW2 && g2o && Pangolin && ORB_SLAM2)**..
+3. Right click the mono_tum project and then click generate.
+4. Download tum dataset sequence, for example [freiburg2_desk ](http://filecremers3.informatik.tu-muenchen.de/rgbd/dataset/freiburg2/rgbd_dataset_freiburg2_desk.tgz)
+5. Right click the mono_tum project and then click property->config property->debug, input three parameters (Usage: ./mono_tum path_to_vocabulary path_to_settings path_to_sequence, the first can be ignored in windows)
+ - **path_to_vocabulary** In ORBSLAM24Windows/Vocabulary folder, unpack the tar, a .txt file) 
+ - **path_to_settings** In ORBSLAM24Windows/Examples/Monocular folder, rgbd_dataset_freiburg2_desk corresponding to TUM2.yaml) 
+ - **path_to_sequence** rgbd_dataset_freiburg2_desk folder path
+6. Run app, it'll take a few minutes to load the vocabulary dictionary, and then you'll get the result.
 
-**(Build mode should be the same as DBoW2 && g2o && Pangolin && ORB_SLAM2)**.
+If you don't satisfied with the speed of loading dictionary, you can reference issue [vocabulary convert](https://github.com/raulmur/ORB_SLAM2/pull/21) to convert the txt vocabulary  to bin vocabulary, it speed up a lot.
 
 The picture shows the result of mono TUM dataset.
 
