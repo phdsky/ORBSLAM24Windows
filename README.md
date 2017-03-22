@@ -61,6 +61,7 @@ First, we'll compile the projects in **Thirdparty** folder.
 
 ### Applications
 If you want to make apps, you can also build the mono-stero-RGBD projects provided.
+
 Take mono_tum app as an example, you can follow the steps below.  
 1. Go to the ORBSLAM24Windows/build folder, double click the ORB_SLAM2.sln to open the peoject.
 2. Choose either debug or release mode you want. **(Build mode should be the same as DBoW2 && g2o && Pangolin && ORB_SLAM2)**..
