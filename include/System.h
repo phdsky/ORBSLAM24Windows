@@ -126,6 +126,10 @@ public:
     std::vector<cv::KeyPoint> GetTrackedKeyPointsUn();
 
 private:
+    // save map function
+    void SaveXYZ(const string &filename);
+
+private:
 
     // Input sensor
     eSensor mSensor;
@@ -138,6 +142,9 @@ private:
 
     // Map structure that stores the pointers to all KeyFrames and MapPoints.
     Map* mpMap;
+
+    string xyzfile;
+    bool is_save_map;
 
     // Tracker. It receives a frame and computes the associated camera pose.
     // It also decides when to insert a new keyframe, create some new MapPoints and
