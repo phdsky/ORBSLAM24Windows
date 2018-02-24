@@ -64,12 +64,18 @@ System::System(const string &strVocFile, const string &strSettingsFile, const eS
 
     //Check settings file
     cv::FileStorage fsSettings(strSettingsFile.c_str(), cv::FileStorage::READ);
-    if(!fsSettings.isOpened())
-    {
-       cerr << "Failed to open settings file at: " << strSettingsFile << endl;
-       exit(-1);
+    if(!fsSettings.isOpened()) {
+        cerr << "Failed to open settings file at: " << strSettingsFile << endl;
+        exit(-1);
     }
 
+    cv::FileNode xyzfilen = fsSettings["Map.xyzfile"];
+    is_save_map = false;
+    if (!xyzfilen.empty())
+    {
+        xyzfile = (string)xyzfilen;
+        is_save_map = true;
+    }
 
     //Load ORB Vocabulary
     cout << endl << "Loading ORB Vocabulary. This could take a while..." << endl;
@@ -330,6 +336,10 @@ void System::Shutdown()
 
     if(mpViewer)
         pangolin::BindToContext("ORB-SLAM2: Map Viewer");
+
+    if (is_save_map){
+        SaveXYZ(xyzfile);
+    }
 }
 
 void System::SaveTrajectoryTUM(const string &filename)
@@ -500,6 +510,30 @@ vector<cv::KeyPoint> System::GetTrackedKeyPointsUn()
 {
     unique_lock<mutex> lock(mMutexState);
     return mTrackedKeyPointsUn;
+}
+
+void System::SaveXYZ(const string &filename)
+{
+    std::ofstream out(filename, std::ios_base::binary);
+    if (!out)
+    {
+        cerr << "Cannot Write to xyzfile: " << xyzfile << std::endl;
+        exit(-1);
+    }
+    cout << "Saving xyzfile: " << xyzfile << std::flush;
+
+    const vector<MapPoint*> &vpMPs = mpMap->GetAllMapPoints();
+
+    if(vpMPs.empty())
+        return;
+
+    std::ofstream ofs(xyzfile);
+    for(size_t i=0, iend=vpMPs.size(); i<iend;i++) {
+        cv::Mat pos = vpMPs[i]->GetWorldPos();
+        string line = std::to_string(pos.at<float>(0)) + " " + std::to_string(pos.at<float>(1)) + " " + std::to_string(pos.at<float>(2));
+        ofs << line << std::endl;
+    }
+    cout << " ...done" << std::endl;
 }
 
 } //namespace ORB_SLAM
